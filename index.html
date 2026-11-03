@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>XOXO</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #080808;
+            color: #f5f0e8;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #080808;
+            border-bottom: 1px solid #b89b5e;
+            padding: 25px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            color: #d4af63;
+            font-size: 38px;
+            letter-spacing: 8px;
+            font-weight: normal;
+        }
+
+        .subtitle {
+            color: #d9a0b5;
+            font-size: 12px;
+            letter-spacing: 5px;
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            margin-top: 22px;
+        }
+
+        nav a {
+            color: #eee7dc;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #d4af63;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 25px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(130, 20, 55, 0.22),
+                    transparent 45%
+                ),
+                #080808;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .small-title {
+            color: #d9a0b5;
+            font-size: 14px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(60px, 15vw, 130px);
+            font-weight: normal;
+            color: #d4af63;
+            letter-spacing: 12px;
+            text-shadow: 0 0 30px rgba(212,175,99,0.2);
+        }
+
+        .hero h2 {
+            color: #f5f0e8;
+            font-size: 25px;
+            font-weight: normal;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        .hero p {
+            color: #aaa39a;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 25px auto;
+            max-width: 550px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            border: 1px solid #d4af63;
+            color: #d4af63;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #d4af63;
+            color: #080808;
+        }
+
+        /* SECTIONS */
+
+        .section {
+            padding: 100px 25px;
+            text-align: center;
+            border-top: 1px solid #211c18;
+        }
+
+        .section-title {
+            color: #d4af63;
+            font-size: 38px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .pink-line {
+            width: 55px;
+            height: 2px;
+            background: #d9a0b5;
+            margin: 20px auto 45px;
+        }
+
+        .section-description {
+            max-width: 650px;
+            margin: auto;
+            color: #aaa39a;
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+        }
+
+        /* CARDS */
+
+        .cards {display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .card {
+            width: 280px;
+            min-height: 220px;
+            padding: 35px 25px;
+
+            background: linear-gradient(
+                145deg,
+                #151515,
+                #0b0b0b
+            );
+
+            border: 1px solid #3a3025;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #d4af63;
+        }
+
+        .card-icon {
+            color: #d9a0b5;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #d4af63;
+            font-size: 22px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #999;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* QUOTE */
+
+        .quote {
+            padding: 100px 25px;
+            text-align: center;
+            background: #0d0d0d;
+        }
+
+        .quote p {
+            color: #e7d9c5;
+            font-size: 28px;
+            font-style: italic;
+            line-height: 1.5;
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .quote span {
+            display: block;
+            color: #d9a0b5;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #b89b5e;
+            padding: 35px 20px;
+            text-align: center;
+            background: #050505;
+        }
+
+        footer .footer-logo {
+            color: #d4af63;
+            font-size: 24px;
+            letter-spacing: 6px;
+        }
+
+        footer p {
+            color: #777;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            margin-top: 12px;
+        }
+
+        .xoxo {
+            color: #d9a0b5;
+            margin-top: 15px;
+            font-size: 14px;
+            letter-spacing: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">XOXO</div>
+        <div class="subtitle">You know you love it</div>
+
+        <nav>
+            <a href="#home">Главная</a>
+            <a href="#about">О нас</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <div class="small-title">
+                Welcome to
+            </div>
+
+            <h1>XOXO</h1>
+
+            <h2>Gossip, glamour & secrets.</h2>
+
+            <p>
+                Добро пожаловать в наш маленький мир
+                роскоши, интриг и красивых историй.
+            </p>
+
+            <a href="#about" class="button">
+                Enter the world
+            </a>
+
+        </div>
+    </section>
+
+    <section class="section" id="about">
+
+        <h2 class="section-title">
+            About us
+        </h2>
+
+        <div class="pink-line"></div>
+
+        <p class="section-description">
+            Здесь встречаются стиль, атмосфера и немного тайны.
+            Чёрный, золото и нежно-розовые детали создают
+            элегантный мир XOXO.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">✦</div>
+                <h3>Glamour</h3>
+                <p>
+                    Немного блеска, роскоши и красивых деталей.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">♡</div>
+                <h3>Secrets</h3>
+                <p>
+                    Потому что самые интересные истории
+                    начинаются с маленького секрета.
+                </p>
+            </div>
+
+            <div class="card"><div class="card-icon">✧</div>
+                <h3>Style</h3>
+                <p>
+                    Элегантность, которая никогда не выходит
+                    из моды.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="quote">
+
+        <p>
+            “The most exciting stories are the ones
+            nobody was supposed to know.”
+        </p>
+
+        <span>
+            XOXO
+        </span>
+
+    </section>
+
+    <section class="section" id="contact">
+
+        <h2 class="section-title">
+            Contact
+        </h2>
+
+        <div class="pink-line"></div>
+
+        <p class="section-description">
+            Есть секрет? Или просто хочешь быть в курсе?
+            Напиши нам.
+        </p>
+
+        <a href="mailto:hello@example.com" class="button">
+            Say hello
+        </a>
+
+    </section>
+
+    <footer>
+
+        <div class="footer-logo">
+            XOXO
+        </div>
+
+        <div class="xoxo">
+            Gossip never sleeps.
+        </div>
+
+        <p>
+            © 2026 XOXO. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
